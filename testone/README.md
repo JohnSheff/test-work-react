@@ -2,7 +2,7 @@
 
 Необходимо на создать страницу отображающую список компонентов с помощью **библиотеки React**. Каждый компонентов состоит из трех частей: заголовок, список, текстовое описание.
 
-![old](https://github.com/GPB-COS/test-work-react/blob/master/test%201/pic/Blocks.PNG)
+![old](https://github.com/JohnSheff/test-work-react/blob/master/test%201/pic/Blocks.PNG)
 
 Данные передаются с сервера в виде JSON-структуры:
 
