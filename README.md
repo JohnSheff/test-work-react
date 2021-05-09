@@ -2,9 +2,9 @@
 
 Каждое задание оценивается звездочкой.
 
-1. [Задание 1 (*)](https://github.com/JohnSheff/test-work-react/tree/master/test%201)
-2. [Задание 2 (**)](https://github.com/JohnSheff/test-work-react/tree/master/test%202)
-3. [Задание 3 (***)](https://github.com/JohnSheff/test-work-react/tree/master/test%203)
+1. [Задание 1 (*)](https://github.com/JohnSheff/test-work-react/tree/master/testone)
+2. [Задание 2 (**)](https://github.com/JohnSheff/test-work-react/tree/master/testtwo)
+3. [Задание 3 (***)](https://github.com/JohnSheff/test-work-react/tree/master/testthree)
 
 По всем вопросам писать на почту:
 
