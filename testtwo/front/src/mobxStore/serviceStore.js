@@ -12,7 +12,6 @@ class mobxServices {
         fetch("http://localhost:7070/api/services")
             .then(data => data.json())
             .then(res => {
-                console.log(res)
                 this.mesError = ""
                 this.listServices = res;
             }).catch((err) => {
@@ -21,7 +20,6 @@ class mobxServices {
     }
 
     retryDate() {
-        console.log(this)
         if (this.mesError) {
             this.mesError = ""
             this.fetchSomeDate()

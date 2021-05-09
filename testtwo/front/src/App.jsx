@@ -10,9 +10,8 @@ function App() {
         <BrowserRouter>
             <Navigation/>
             <Switch>
-                <Route exact path="/" component={Services} />
-                <Route exact path="/:id/details" component={ServiceDetails}>
-                </Route>
+                <Route exact path="/" component={Services}/>
+                <Route exact path="/:id/details" component={ServiceDetails}/>
             </Switch>
         </BrowserRouter>
     );

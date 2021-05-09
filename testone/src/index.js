@@ -5,9 +5,7 @@ import fetchSomeData from "../src/app"
 
 ReactDOM.render(
   <React.StrictMode>
-    <>
-    <Table someData={fetchSomeData}/>
-    </>
-  </React.StrictMode>,
+      <Table someData={fetchSomeData}/>
+    </React.StrictMode>,
   document.getElementById('root')
 );

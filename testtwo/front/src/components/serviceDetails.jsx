@@ -1,36 +1,35 @@
-import React from 'react';
+import {observer} from "mobx-react-lite"
+import mobxServicesDetails from "../mobxStore/serviceDetailStore"
 import {useParams} from "react-router";
+import React from 'react';
+import {useEffectOnce} from "react-use";
 
-const ServiceDetails = () => {
+const ServiceDetails = observer(() => {
+
     const {id} = useParams()
-    const [detailsItem, setDetailsItem] = React.useState()
-    React.useEffect(() => {
 
-        fetch(`http://localhost:7070/api/services/${id}`)
-            .then(data => data.json())
-            .then(res => {
-                setDetailsItem(res);
-            })
+    useEffectOnce(() => {
+        mobxServicesDetails.fetchSomeDateDetails(id)
+    })
 
-        hangError()
-    }, [detailsItem, id])
-
-  const  hangError = () => {
-        console.log("ошибка")
-    }
     return (
         <div>
-            {detailsItem ? <div>
-                    <h2>Название: {detailsItem.name}</h2>
-                    <h3>Подробнее: {detailsItem.content}</h3>
-                    <h3>Цена: {detailsItem.price}</h3>
-                </div> :
+            {!mobxServicesDetails.mesError ?
                 <div>
-                    <button onClick={hangError}> Повторить запрос</button>
+                    <h2>Название: {mobxServicesDetails.listServicesDetails.name}</h2>
+                    <h3>Подробнее: {mobxServicesDetails.listServicesDetails.content}</h3>
+                    <h3>Цена: {mobxServicesDetails.listServicesDetails.price}</h3>
+                </div> :
+                <div className='error'>
+                    <p className="errorMessage">Произошла ошибка</p>
+                    <button  className="btn btn-secondary" onClick={() => {
+                        mobxServicesDetails.retryDateDetails(id)
+                    }}> Повторить запрос
+                    </button>
                 </div>}
         </div>
     );
-}
-;
+})
+
 
 export default ServiceDetails;
