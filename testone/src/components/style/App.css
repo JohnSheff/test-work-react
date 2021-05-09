@@ -1,0 +1,29 @@
+.tablo {
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.someBox {
+    margin: 10px;
+    border: black solid 2px;
+    max-width: 300px;
+
+}
+
+.someList{
+    min-height: 100px;
+
+}
+.someHeader {
+    margin: 10px;
+}
+.someText {
+    margin: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 269px;
+}
