@@ -36,7 +36,7 @@ function getRandomInt(min, max) {
 }
 
 function theErrorIsComing(res){
-  if (!(getRandomInt(0, 666) % 13)){
+  if (!(getRandomInt(0, 3) % 13)){
     console.log(`theErrorIsComing`);
     res.statusMessage = "The error is coming.";
     res.statusCode = 500;
@@ -52,7 +52,7 @@ async function theDelayIsComing(process,delay){
   let isDelayed = false;
   if (!(getRandomInt(0, 9) % getRandomInt(0, 9)) || delay ){
     await new Promise(resolve => {
-      const timeout = delay || getRandomInt(1, 1 * 1000); 
+      const timeout = delay || getRandomInt(1, 1 * 1000);
       console.log(`theDelayIsComing ${timeout}`);
       setTimeout(() => {
           resolve();
