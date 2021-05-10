@@ -4,6 +4,7 @@ import {makeAutoObservable} from "mobx"
 class mobxServicesDetails {
     listServicesDetails = []
     mesError = ""
+    loadingDetails = true
 
     constructor() {
         makeAutoObservable(this)
@@ -11,10 +12,16 @@ class mobxServicesDetails {
 
     fetchSomeDateDetails(id) {
         fetch(`http://localhost:7070/api/services/${id}`)
-            .then(data => data.json())
+            .then(data => {
+                this.loadingDetails = true
+                return data.json()
+            })
             .then(res => {
+                this.mesError = ""
+                this.loadingDetails = false
                 this.listServicesDetails = res
             }).catch((err) => {
+            this.loadingDetails = true
             this.mesError = err.message
         });
     }

@@ -3,6 +3,7 @@ import mobxServicesDetails from "../mobxStore/serviceDetailStore"
 import {useParams} from "react-router";
 import React from 'react';
 import {useEffectOnce} from "react-use";
+import image from "../pic/B13CC99F-A588-40A3-BAB3-EDF25B140F3D.png"
 
 const ServiceDetails = observer(() => {
 
@@ -14,6 +15,14 @@ const ServiceDetails = observer(() => {
 
     return (
         <div>
+            {
+                mobxServicesDetails.loadingDetails && !mobxServicesDetails.mesError ?
+                    <>
+                        <img src={image} alt="loading"/>
+                    </>
+                    :
+                    null
+            }
             {!mobxServicesDetails.mesError ?
                 <div>
                     <h2>Название: {mobxServicesDetails.listServicesDetails.name}</h2>
@@ -21,8 +30,8 @@ const ServiceDetails = observer(() => {
                     <h3>Цена: {mobxServicesDetails.listServicesDetails.price}</h3>
                 </div> :
                 <div className='error'>
-                    <p className="errorMessage">Произошла ошибка</p>
-                    <button  className="btn btn-secondary" onClick={() => {
+                    <p className="errorMessage">Произошла ошибка!</p>
+                    <button className="btn btn-secondary errorButton" onClick={() => {
                         mobxServicesDetails.retryDateDetails(id)
                     }}> Повторить запрос
                     </button>

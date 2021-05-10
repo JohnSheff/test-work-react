@@ -3,6 +3,7 @@ import {makeAutoObservable} from "mobx"
 class mobxServices {
     listServices = []
     mesError = ""
+    loading = true
 
     constructor() {
         makeAutoObservable(this)
@@ -10,11 +11,17 @@ class mobxServices {
 
     fetchSomeDate() {
         fetch("http://localhost:7070/api/services")
-            .then(data => data.json())
+            .then(data => {
+                this.loading = true
+                return data.json()
+            })
             .then(res => {
                 this.mesError = ""
                 this.listServices = res;
+                this.loading = false
+
             }).catch((err) => {
+            this.loading = true
             this.mesError = err.message
         });
     }
