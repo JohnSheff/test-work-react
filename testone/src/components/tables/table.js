@@ -24,7 +24,7 @@ export default function App({someData}) {
                     <span className="someText">{item.text}</span>
                 </div>
             )) : <>
-                <h2>Тут могла бы быть ваша реклама!</h2>
+                <h2>Ожидания загрузки json</h2>
             </>}
         </div>
     )

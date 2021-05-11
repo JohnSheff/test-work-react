@@ -1,5 +1,8 @@
-import {makeAutoObservable} from "mobx"
+import {configure, makeAutoObservable} from "mobx"
 
+configure({
+    enforceActions: "never",
+})
 
 class mobxServicesDetails {
     listServicesDetails = []
@@ -10,7 +13,7 @@ class mobxServicesDetails {
         makeAutoObservable(this)
     }
 
-    fetchSomeDateDetails(id) {
+    fetchSomeDataDetails(id) {
         fetch(`http://localhost:7070/api/services/${id}`)
             .then(data => {
                 this.loadingDetails = true
@@ -26,10 +29,10 @@ class mobxServicesDetails {
         });
     }
 
-    retryDateDetails(id) {
+    retryDataDetails(id) {
         if (this.mesError) {
             this.mesError = ""
-            this.fetchSomeDateDetails(id)
+            this.fetchSomeDataDetails(id)
         }
     }
 }

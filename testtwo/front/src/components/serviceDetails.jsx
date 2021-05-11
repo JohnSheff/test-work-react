@@ -10,7 +10,7 @@ const ServiceDetails = observer(() => {
     const {id} = useParams()
 
     useEffectOnce(() => {
-        mobxServicesDetails.fetchSomeDateDetails(id)
+        mobxServicesDetails.fetchSomeDataDetails(id)
     })
 
     return (
@@ -32,7 +32,7 @@ const ServiceDetails = observer(() => {
                 <div className='error'>
                     <p className="errorMessage">Произошла ошибка!</p>
                     <button className="btn btn-secondary errorButton" onClick={() => {
-                        mobxServicesDetails.retryDateDetails(id)
+                        mobxServicesDetails.retryDataDetails(id)
                     }}> Повторить запрос
                     </button>
                 </div>}

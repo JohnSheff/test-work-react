@@ -4,7 +4,7 @@ import meServices from "../mobxStore/serviceStore"
 import {observer} from "mobx-react-lite"
 import image from "../pic/B13CC99F-A588-40A3-BAB3-EDF25B140F3D.png"
 
-meServices.fetchSomeDate()
+meServices.fetchSomeData()
 const Services = observer(() => {
     return (
         <div>
@@ -23,7 +23,7 @@ const Services = observer(() => {
             ) : <div className='error'>
                 <p className="errorMessage">Произошла ошибка!</p>
                 <button className="btn btn-secondary errorButton" onClick={() => {
-                    meServices.retryDate()
+                    meServices.retryData()
                 }}> Повторить запрос
                 </button>
             </div>}
